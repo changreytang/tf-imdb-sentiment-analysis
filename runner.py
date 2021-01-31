@@ -13,8 +13,8 @@ train_labels = train_labels[10000:]
 model.compile()
 model.fit(train_data, train_labels, val_data, val_labels, epochs=4)
 
-# model.plt_train_val_loss()
-# model.plt_train_val_accuracy()
+model.plt_train_val_loss()
+model.plt_train_val_accuracy()
 
 (test_data, test_labels) = imdb_data.get_vectorized_test_data_and_labels()
-print(model.evaluate(test_data, test_labels))
+print(model.evaluate(test_data, test_labels)) # test loss, test accuracy

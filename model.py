@@ -5,8 +5,9 @@ import matplotlib.pyplot as plt
 
 class Model:
 
-    def __init__(self, inner_num_units=16, inner_activation='relu'):
+    def __init__(self, inner_num_units=8, inner_activation='relu'):
         self.model = models.Sequential([
+            layers.Dense(inner_num_units, activation=inner_activation),
             layers.Dense(inner_num_units, activation=inner_activation),
             layers.Dense(inner_num_units, activation=inner_activation),
             layers.Dense(1, activation='sigmoid'),
@@ -24,7 +25,7 @@ class Model:
             validation_data=(val_data, val_labels),
         )
 
-    def compile(self, optimizer='rmsprop', loss='binary_crossentropy'):
+    def compile(self, optimizer='rmsprop', loss='mse'):
         self.model.compile(optimizer=optimizer, loss=loss,
                            metrics=['accuracy'])
 
